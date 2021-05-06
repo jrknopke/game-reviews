@@ -1,8 +1,13 @@
 class SessionsController < ApplicationController
    
     def destroy
-        session.clear
-        redirect_to '/'
+        session.delete(:user_id)
+        @current_user = nil
+        redirect_to '/login'
+    end
+
+    def new
+
     end
 
     def create

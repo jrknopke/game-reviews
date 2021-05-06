@@ -20,6 +20,9 @@ class UsersController < ApplicationController
         redirect_to '/' if !@user
     end
 
+    def destroy
+    end
+    
     private
 
     def user_params
