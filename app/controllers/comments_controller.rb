@@ -10,8 +10,13 @@ class CommentsController < ApplicationController
         end
     end
 
-    def new 
-        @comment = Comment.new
+    def new
+        if params[:review_id] && @review = Review.find_by_id(params[:review_id])
+            @comment = @review.comments.build
+        else
+            @error = "That review doesn't exist"
+            @comment = Comment.new
+        end
     end
 
     def create 
