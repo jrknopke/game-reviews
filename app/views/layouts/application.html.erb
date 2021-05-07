@@ -14,12 +14,12 @@
 
     <div>
       <% if logged_in? %>
-      <%= link_to "Add a Review", new_review_path %>
-      <%= link_to "All Reviews", reviews_path %>
-      <%=link_to "Logout", logout_path, method:"delete"%>
+      <%= link_to "Add a Review", new_review_path %> |
+      <%= link_to "All Reviews", reviews_path %> |
+      <%=link_to "Logout", logout_path, method:"delete"%> |
       <% else %>
-      <%=link_to "Sign Up", signup_path %>
-      <%=link_to "Log In", login_path %>
+      <%=link_to "Sign Up", signup_path %> |
+      <%=link_to "Log In", login_path %> |
       <%end%>
     </div>
 
@@ -28,7 +28,7 @@
         <%= flash[:message]%>
       <% end %>
     </div>
-    
+
     <%= yield %>
   </body>
 </html>
