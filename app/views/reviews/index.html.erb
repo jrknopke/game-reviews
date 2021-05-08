@@ -1,7 +1,9 @@
 <h1> Reviews </h1>
 
 <% @reviews.each do |r| %>
-    <h3><%= r.title %></h3>
+    <h4><%= r.title %> <%= link_to "See review", review_path(r)%></h4>
+    <%= r.user.username %>
+    <br>
     <%= r.content %>
     <br>
 <% end %>

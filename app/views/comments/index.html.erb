@@ -5,7 +5,7 @@
 <% end %>
 
 <ul>
-<% comments.each do |c| %>
+<% @comments.each do |c| %>
     <li><%= c.user.username%> - "<%= c.content %>" about this review: <strong><%= link_to c.review.title, review_path(c.review_id)%></strong></li>
 <% end %>
 </ul>

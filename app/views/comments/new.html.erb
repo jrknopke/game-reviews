@@ -1,21 +1,10 @@
-<% if @comment.post %>
-<h1> New Comment for <%= @comment.post.title%>! </h1>
-<% else %>
-<h1> New Comment </h1>
-<% end %>
+<h1> New Comment for <%=@review.title%>! </h1>
 
-<%= form_for([@comment.review,@comment]) do |f|%>
-
-    <% if !@comment.review %>
-        <%= f.label :review %>
-        <%= f.collection_select :review_id, Review.all, :id, :title %>
-    <% else %>
-        <% f.hidden_field :review_id %>
-    <% end %>
-
-    <%= f.label :content %>
-    <%= f.text_field :content %>
-
-    <%= f.submit %>
-    
+<%= form_with(model: [@review, @comment]) do |f| %>
+    <div class="form-group">
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :review_id, value: @review.id %>
+    <%= f.text_area :content %>
+    <%= f.submit :comment %>
+    </div>
 <% end %>

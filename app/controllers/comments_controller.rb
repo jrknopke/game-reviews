@@ -19,10 +19,13 @@ class CommentsController < ApplicationController
         end
     end
 
-    def create 
-        @comment =current_user.comments.build(comment_params)
-        if @coment.save
-            redirect_to comments_path
+    def create
+        @review = Review.find_by_id(params[:review_id])
+        @comment = current_user.comments.build(comment_params)
+        #binding.pry
+        if @comment.valid?
+            @comment.save
+            redirect_to review_path(@review)
         else
             render :new
         end
@@ -48,6 +51,6 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        @params.require(:comment).permit(:content,:review_id)
+        params.require(:comment).permit(:content,:review_id, :user_id)
     end
 end
