@@ -1,24 +1,8 @@
 # README
+<h1> Game Reviews </h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Fork and clone this repo. Then run ```bundle install```, and ```rake db:migrate```
 
-Things you may want to cover:
+Sign Up to create a new account, or log into an existing account.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Review games or leave comments on other user's reviews. 
