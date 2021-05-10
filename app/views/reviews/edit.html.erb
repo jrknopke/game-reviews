@@ -1,5 +1,7 @@
 <h1> Edit <%= @review.title %> </h1>
 
+<%= render partial: "layouts/errors", locals: {object: @review} %>
+
 <%= form_for(@review) do |f| %>
 
     <%= f.label :title %>

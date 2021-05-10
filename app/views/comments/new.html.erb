@@ -1,10 +1,11 @@
 <h1> New Comment for <%=@review.title%>! </h1>
 
-<%= form_with(model: [@review, @comment]) do |f| %>
-    <div class="form-group">
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :review_id, value: @review.id %>
-    <%= f.text_area :content %>
-    <%= f.submit :comment %>
-    </div>
+<%= render partial: "layouts/errors", locals: {object: @comment} %>
+
+<%= form_for([@review, @comment]) do |f| %>
+    <%= f.hidden_field :review_id %>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+
+    <%= f.submit %>
 <% end %>

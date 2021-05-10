@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
     before_action :redirect_if_not_logged_in
+    before_action :set_comment, only: [:show, :edit, :update]
 
     def index
         if params[:review_id] && @review = Review.find_by_id(params[:review_id])
@@ -14,7 +15,7 @@ class CommentsController < ApplicationController
         if params[:review_id] && @review = Review.find_by_id(params[:review_id])
             @comment = @review.comments.build
         else
-            @error = "That review doesn't exist"
+            @error = "That review doesn't exist" if params[:review_id]
             @comment = Comment.new
         end
     end
@@ -23,8 +24,7 @@ class CommentsController < ApplicationController
         @review = Review.find_by_id(params[:review_id])
         @comment = current_user.comments.build(comment_params)
         #binding.pry
-        if @comment.valid?
-            @comment.save
+        if @comment.save
             redirect_to review_path(@review)
         else
             render :new
@@ -32,11 +32,9 @@ class CommentsController < ApplicationController
     end
 
     def show
-        @comment = Comment.find_by(id: params[:id])
     end
 
     def edit
-        @comment = Comment.find_by(id: params[:id])
     end
 
     def update

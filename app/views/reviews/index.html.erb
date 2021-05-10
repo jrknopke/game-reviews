@@ -2,7 +2,7 @@
 
 <% @reviews.each do |r| %>
     <h4><%= r.title %> <%= link_to "See review", review_path(r)%></h4>
-    <%= r.user.username %>
+    <h5> By: <%= r.user.username %></h5>
     <br>
     <%= r.content %>
     <br>

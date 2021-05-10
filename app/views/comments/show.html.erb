@@ -1,0 +1,7 @@
+<h2><%= @somment.content%> - <%= @comment.user.username%></h2>
+
+<% if @comment.user == current_user %>
+    <%= link_to "Edit Comment", edit_comment_path(@comment)%>
+<% end %>
+
+<h4> Comment left for: <%= link_to @comment.review.title, review_path(@comment.review_id) %></h4>
