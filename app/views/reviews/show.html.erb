@@ -3,6 +3,9 @@
 <% if @review.user == current_user %>
 <h3><%= link_to "Edit Review", edit_review_path(@review)%></h3>
 <% end %>
+<% if @review.user == current_user %>
+<h3><%= link_to "Delete Review", review_path(@review), method: :delete, data: {confirm: 'Are you sure?'} %></h3>
+<% end %>
 
 <div><%= @review.content%></div>
 
