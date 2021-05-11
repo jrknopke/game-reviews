@@ -1,4 +1,4 @@
-<h1> Reviews </h1>
+<%= display_index_helper %>
 
 <% @reviews.each do |r| %>
     <h4><%= r.title %> <%= link_to "See review", review_path(r)%></h4>
