@@ -3,3 +3,9 @@
 <h3><%= link_to "Review A Game", new_review_path %></h3>
 <h3><%= link_to "See All Reviews", reviews_path %></h3>
 <h3><%= link_to "See My Reviews", user_reviews_path(current_user) %></h3>
+
+<div><%= @user.username %>, you have left comments on these reviews: 
+    <% @user.reviews.each do |review| %>
+        <ul><%= link_to review.title, review_path(review)%></ul>
+    <% end %>
+</div>

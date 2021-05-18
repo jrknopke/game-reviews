@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#googleauth'
   
   resources :comments
-  #resources :genres
+
   resources :users do
     resources :reviews, only: [:new,:create,:index]
+    resources :comments, only: [:new, :create, :index]
   end
   resources :reviews do
     resources :comments, only: [:new,:create,:index]

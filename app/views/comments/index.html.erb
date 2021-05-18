@@ -1,7 +1,11 @@
-<h1> All Comments </h1>
+<% if @review %>
+    <h1> Comments for <%= @review.title %>
+<% else %>
+    <h1> All Comments </h1>
+<% end %>
 
-<ul>
+<div><ul>
 <% @comments.each do |c| %>
     <li><%= c.user.username%> - "<%= c.content %>" about this review: <strong><%= link_to c.review.title, review_path(c.review_id)%></strong></li>
 <% end %>
-</ul>
+</ul></div>

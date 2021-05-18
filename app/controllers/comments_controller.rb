@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
         if params[:review_id] && @review = Review.find_by_id(params[:review_id])
             @comments = @review.comments
         else
-            @error = "That review doesn't exist" if parmas[:review_id]
+            @error = "That review doesn't exist" if params[:review_id]
             @comments = Comment.all
         end
     end
@@ -51,4 +51,13 @@ class CommentsController < ApplicationController
     def comment_params
         params.require(:comment).permit(:content,:review_id, :user_id)
     end
+
+    def set_comment
+        @comment = Comment.find_by(id: params[:id])
+        if !@comment
+            flash[:message] = "Comment was not found"
+            redirect_to comments_path
+        end
+    end
+    
 end
