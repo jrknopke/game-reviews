@@ -5,6 +5,8 @@ class CommentsController < ApplicationController
     def index
         if params[:review_id] && @review = Review.find_by_id(params[:review_id])
             @comments = @review.comments
+        elsif params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @comments = @user.comments
         else
             @error = "That review doesn't exist" if params[:review_id]
             @comments = Comment.all

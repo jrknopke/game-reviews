@@ -1,5 +1,7 @@
 <% if @review %>
     <h1> Comments for <%= @review.title %>
+<% elsif @user %>
+    <h1> Comments for <%= @user.username %>
 <% else %>
     <h1> All Comments </h1>
 <% end %>
