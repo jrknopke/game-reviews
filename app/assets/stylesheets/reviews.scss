@@ -1,3 +1,69 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+h1 {
+    display: table;
+    margin: 5px auto 5px auto;
+    background-color: rgb(89, 128, 190);
+    background-size: 100%;
+    border: solid;
+    color: black;
+    text-align: left;
+}
+
+h2 {
+    display: table;
+    margin: 5px auto 5px auto;
+    background-color: rgb(89, 128, 190);
+    background-size: 100%;
+    color: black;
+    text-align: left;
+}
+
+h3 {
+    display: table;
+    margin: 5px auto 5px auto;
+    background-color: red;
+    background-size: 100%;
+    border: dashed red;
+    color: black;
+    text-align: left;
+}
+
+p {
+    display: table;
+    margin: 5px auto 5px auto;
+    background-color: rgb(132, 197, 186);
+    background-size: 100%;
+    color: black;
+    text-align: left;
+}
+
+h4 {
+    display: table;
+    margin: 0px auto 0px auto;
+    background-color: rgb(132, 197, 186);
+    background-size: 100%;
+    text-align: left;
+}
+
+div {
+    display: table;
+    margin: 0px auto 0px auto;
+    background-color: white;
+    background-size: 100%;
+    border: solid;
+    color: black;
+    text-align: left;
+}
+
+ul {
+    display: table;
+    margin: 0px auto 0px auto;
+    background-color: rgb(132, 197, 186);
+    background-size: 100%;
+    border: solid;
+    color: black;
+    text-align: left;
+}

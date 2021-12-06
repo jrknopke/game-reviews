@@ -1,4 +1,4 @@
-<h1><%=@review.title%></h1>
+<h1> <%=@review.title%></h1>
 <h2>By: <%=@review.user.username%></h2>
 <% if @review.user == current_user %>
 <h3><%= link_to "Edit Review", edit_review_path(@review)%></h3>
@@ -12,6 +12,7 @@
 <p><%= link_to "Add a comment", new_review_comment_path(@review)%></p>
 
 <h4> Comments: </h4>
+<ul>
 <% @review.comments.each do |c|%>
     <li><strong><%= c.user.username%></strong> - "<%= c.content%>" </li>
-<% end %>
+<% end %></ul>
